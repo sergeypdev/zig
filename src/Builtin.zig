@@ -3,6 +3,7 @@ zig_backend: std.builtin.CompilerBackend,
 output_mode: std.builtin.OutputMode,
 link_mode: std.builtin.LinkMode,
 is_test: bool,
+is_build: bool,
 single_threaded: bool,
 link_libc: bool,
 link_libcpp: bool,
@@ -41,6 +42,7 @@ pub fn append(opts: @This(), buffer: *std.ArrayList(u8)) Allocator.Error!void {
         \\pub const output_mode = std.builtin.OutputMode.{p_};
         \\pub const link_mode = std.builtin.LinkMode.{p_};
         \\pub const is_test = {};
+        \\pub const is_build = {};
         \\pub const single_threaded = {};
         \\pub const abi = std.Target.Abi.{p_};
         \\pub const cpu: std.Target.Cpu = .{{
@@ -54,6 +56,7 @@ pub fn append(opts: @This(), buffer: *std.ArrayList(u8)) Allocator.Error!void {
         std.zig.fmtId(@tagName(opts.output_mode)),
         std.zig.fmtId(@tagName(opts.link_mode)),
         opts.is_test,
+        opts.is_build,
         opts.single_threaded,
         std.zig.fmtId(@tagName(target.abi)),
         std.zig.fmtId(@tagName(target.cpu.arch)),

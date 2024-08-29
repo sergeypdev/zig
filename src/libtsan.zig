@@ -59,6 +59,7 @@ pub fn buildTsan(comp: *Compilation, prog_node: std.Progress.Node) BuildError!vo
         .link_mode = link_mode,
         .resolved_target = comp.root_mod.resolved_target,
         .is_test = false,
+        .is_build = false,
         .have_zcu = false,
         .emit_bin = true,
         .root_optimize_mode = optimize_mode,

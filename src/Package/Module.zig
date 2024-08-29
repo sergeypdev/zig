@@ -362,6 +362,7 @@ pub fn create(arena: Allocator, options: CreateOptions) !*Package.Module {
             .output_mode = options.global.output_mode,
             .link_mode = options.global.link_mode,
             .is_test = options.global.is_test,
+            .is_build = options.global.is_build,
             .single_threaded = single_threaded,
             .link_libc = options.global.link_libc,
             .link_libcpp = options.global.link_libcpp,

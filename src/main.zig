@@ -967,6 +967,7 @@ fn buildOutputType(
         .modules = .{},
         .opts = .{
             .is_test = arg_mode == .zig_test,
+            .is_build = false,
             // Populated while parsing CLI args.
             .output_mode = undefined,
             // Populated in the call to `createModule` for the root module.
@@ -5038,6 +5039,7 @@ fn cmdBuild(gpa: Allocator, arena: Allocator, args: []const []const u8) !void {
                 .have_zcu = true,
                 .emit_bin = true,
                 .is_test = false,
+                .is_build = true,
             });
 
             const root_mod = try Package.Module.create(arena, .{
@@ -5460,6 +5462,7 @@ fn jitCmd(
             .have_zcu = true,
             .emit_bin = true,
             .is_test = false,
+            .is_build = false,
         });
 
         const root_mod = try Package.Module.create(arena, .{

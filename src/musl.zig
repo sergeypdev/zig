@@ -200,6 +200,7 @@ pub fn buildCRTFile(comp: *Compilation, crt_file: CRTFile, prog_node: std.Progre
                 .link_mode = .dynamic,
                 .resolved_target = comp.root_mod.resolved_target,
                 .is_test = false,
+                .is_build = false,
                 .have_zcu = false,
                 .emit_bin = true,
                 .root_optimize_mode = optimize_mode,
